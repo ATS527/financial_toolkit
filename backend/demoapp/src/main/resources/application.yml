@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: demoapp
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/financial_toolkit
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.yml
+
+server:
+    port: 8080
