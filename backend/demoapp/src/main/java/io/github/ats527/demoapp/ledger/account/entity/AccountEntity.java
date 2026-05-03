@@ -15,9 +15,11 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import lombok.Builder;
+import lombok.Getter;
 
 @Entity
 @Builder
+@Getter
 @Table(name = "accounts")
 public class AccountEntity {
     
@@ -37,7 +39,8 @@ public class AccountEntity {
 
     @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
-    private AccountStatusEnum status;
+    @Builder.Default
+    private AccountStatusEnum status = AccountStatusEnum.ACTIVE;
     
     @Column(name = "created_at", nullable = false)
     private OffsetDateTime createdAt;
@@ -47,8 +50,9 @@ public class AccountEntity {
 
     @PrePersist
     protected void onCreate() {
-        this.createdAt = OffsetDateTime.now();
-        this.updatedAt = OffsetDateTime.now();
+        OffsetDateTime now = OffsetDateTime.now();
+        this.createdAt = now;
+        this.updatedAt = now;
     }
 
     @PreUpdate
