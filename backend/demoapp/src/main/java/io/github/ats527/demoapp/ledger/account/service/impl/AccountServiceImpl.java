@@ -26,7 +26,7 @@ public class AccountServiceImpl implements AccountService {
         AccountEntity account = AccountEntity.builder()
             .name(request.name())
             .accountNumber(request.accountNumber())
-            .type(request.type())
+            .type(request.accountType())
             .build();
 
         try {

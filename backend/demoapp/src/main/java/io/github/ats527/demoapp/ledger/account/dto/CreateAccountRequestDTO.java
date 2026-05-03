@@ -16,6 +16,6 @@ public record CreateAccountRequestDTO(
     String accountNumber,
 
     @NotNull(message = "Account type is required")
-    AccountTypeEnum type
+    AccountTypeEnum accountType
 ) {    
 }
