@@ -1,4 +1,7 @@
-name: CI
+name: Spring Boot Tests CI
+
+env:
+  SPRING_PROFILES_ACTIVE: test
 
 on:
   push:
@@ -20,7 +23,7 @@ jobs:
         ports:
           - 5432:5432
         options: >-
-          --health-cmd="pg_isready -U postgres -d financial_toolkit"
+          --health-cmd="pg_isready -U postgres -d financial_toolkit_test"
           --health-interval=10s
           --health-timeout=5s
           --health-retries=5

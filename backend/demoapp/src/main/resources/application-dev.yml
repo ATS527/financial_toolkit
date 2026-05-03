@@ -2,9 +2,6 @@ spring:
   application:
     name: demoapp
 
-  profiles:
-    active: dev
-
   datasource:
     url: jdbc:postgresql://localhost:5432/financial_toolkit
     username: postgres
@@ -13,6 +10,10 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
     
   liquibase:
     enabled: true
