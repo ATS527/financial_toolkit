@@ -1,5 +1,6 @@
 package io.github.ats527.demoapp.ledger.account.service.impl;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import io.github.ats527.demoapp.ledger.account.dto.CreateAccountRequestDTO;
@@ -28,7 +29,11 @@ public class AccountServiceImpl implements AccountService {
             .type(request.type())
             .build();
 
-        accountRepository.save(account);
+        try {
+            accountRepository.save(account);
+        } catch (DataIntegrityViolationException ex) {
+            throw new BusinessLogicException("Account number already exists");
+        }
 
         return new CreateAccountResponseDTO(
             account.getName(),
