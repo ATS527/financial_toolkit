@@ -57,7 +57,7 @@ class AccountServiceImplTest {
 
         // Assert
         assertThat(createdAccount.accountNumber()).isEqualTo(request.accountNumber());
-        assertThat(createdAccount.type()).isEqualTo(request.accountType());
+        assertThat(createdAccount.accountType()).isEqualTo(request.accountType());
         assertThat(createdAccount.name()).isEqualTo(request.name());
 
         verify(accountRepository).existsByAccountNumber(request.accountNumber());
