@@ -41,5 +41,4 @@ public class AccountServiceImpl implements AccountService {
             account.getType()
         );
     }
-    
 }

@@ -1,6 +1,8 @@
 package io.github.ats527.demoapp.shared.exception;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
@@ -32,7 +34,9 @@ public class GlobalExceptionHandler {
             .stream()
             .collect(Collectors.toMap(
                 error -> error.getField(),
-                error -> error.getDefaultMessage()
+                error -> Objects.toString(error.getDefaultMessage(), "Validation failed"),
+                (existing, incoming) -> existing + "; " + incoming,
+                LinkedHashMap::new
             ));
 
         return buildResponse(HttpStatus.BAD_REQUEST, "Validation Error", errors);
@@ -40,7 +44,6 @@ public class GlobalExceptionHandler {
 
     private ResponseEntity<ErrorResponseDTO> buildResponse(HttpStatus status, String message, Map<String, String> errors) {
         ErrorResponseDTO errorResponse = new ErrorResponseDTO(
-            status.value(),
             message,
             errors,
             System.currentTimeMillis()
