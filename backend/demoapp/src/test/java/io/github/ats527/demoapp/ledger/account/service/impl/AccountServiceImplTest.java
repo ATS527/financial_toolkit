@@ -45,7 +45,7 @@ class AccountServiceImplTest {
         AccountEntity accountEntity = AccountEntity.builder()
             .id(1L)
             .accountNumber(request.accountNumber())
-            .type(request.type())
+            .type(request.accountType())
             .status(AccountStatusEnum.ACTIVE)
             .name(request.name())
             .build();
@@ -57,7 +57,7 @@ class AccountServiceImplTest {
 
         // Assert
         assertThat(createdAccount.accountNumber()).isEqualTo(request.accountNumber());
-        assertThat(createdAccount.type()).isEqualTo(request.type());
+        assertThat(createdAccount.accountType()).isEqualTo(request.accountType());
         assertThat(createdAccount.name()).isEqualTo(request.name());
 
         verify(accountRepository).existsByAccountNumber(request.accountNumber());

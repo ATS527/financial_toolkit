@@ -1,4 +1,6 @@
 package io.github.ats527.demoapp.shared.exception.dto;
 
-public record ErrorResponseDTO(int status, String message, long timestamp) {
+import java.util.Map;
+
+public record ErrorResponseDTO(String message, Map<String, String> errors, long timestamp) {
 }
