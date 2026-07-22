@@ -5,6 +5,6 @@ import io.github.ats527.demoapp.ledger.account.enums.AccountTypeEnum;
 public record CreateAccountResponseDTO(
     String name,
     String accountNumber,
-    AccountTypeEnum type
-) {    
+    AccountTypeEnum accountType
+) {
 }

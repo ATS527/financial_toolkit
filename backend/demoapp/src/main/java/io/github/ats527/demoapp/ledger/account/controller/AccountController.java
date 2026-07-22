@@ -30,6 +30,6 @@ public class AccountController {
     ) {
         CreateAccountResponseDTO account = accountService.createAccount(request);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(ApiResponse.created("Account Created", account));
+        return ResponseEntity.status(HttpStatus.CREATED).body(ApiResponse.of("Account Created", account));
     }
 }

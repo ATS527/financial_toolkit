@@ -4,9 +4,6 @@ env:
   SPRING_PROFILES_ACTIVE: test
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
 
 jobs:
