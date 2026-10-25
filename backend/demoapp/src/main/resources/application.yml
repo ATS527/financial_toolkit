@@ -1,17 +1,10 @@
 spring:
-  profiles:
-    active:
-    - dev
   application:
     name: demoapp
 
   jpa:
     hibernate:
       ddl-auto: validate
-
-  liquibase:
-    enabled: true
-    change-log: classpath:db/changelog/db.changelog-master.yml
 
   jackson:
     property-naming-strategy: SNAKE_CASE

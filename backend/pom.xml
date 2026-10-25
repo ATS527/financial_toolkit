@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.14</version>
+        <relativePath/> <!-- lookup parent from Maven Central -->
+    </parent>
+
+    <!-- 2. The coordinates for your root parent project -->
+    <groupId>io.github.ats527</groupId>
+    <artifactId>financial-toolkit-backend</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <!-- 3. IMPORTANT: Must be 'pom' because this project doesn't make a JAR itself -->
+    <packaging>pom</packaging>
+
+    <name>financial-toolkit-backend</name>
+    <description>Parent aggregator for Financial Toolkit backend modules</description>
+
+    <!-- 4. Global properties shared by all submodules -->
+    <properties>
+        <java.version>25</java.version>
+    </properties>
+
+    <!-- 5. List of child modules Maven must build -->
+    <modules>
+        <module>reconciliation</module>
+        <module>demoapp</module>
+    </modules>
+</project>
