@@ -4,8 +4,11 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import io.github.ats527.reconciliation.domain.InternalTransaction;
 
+@Service 
 public class InternalTransactionService {
     
     public List<InternalTransaction> getInternalTransactions() {
